@@ -4,11 +4,18 @@ const distributorSchema = mongoose.Schema({
      name: {
          type: String
      },
-     distributionTeam: {
+     email: {
+        type: String
+    },
+    distributionTeam: {
          type: String
      },
     link: {
         type: String
+    },
+    isActivated: {
+        type: Boolean,
+        default: false
     },
      dateCreated:{
          type: Date,

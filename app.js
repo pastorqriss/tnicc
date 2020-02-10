@@ -49,31 +49,24 @@ app.use('/api/postReaction', postReactionRouter); */
 
 
 router.get("/",function(req,res){
-    res.sendFile(path + "index.html");
+  //  res.sendFile(path + "index.html");
+  res.send('<!doctype html>\n<html lang="en">\n' +  
+  '\n<meta charset="utf-8">\n<title>TNICC RESTFul Endpoint</title>\n' + 
+  '<style type="text/css">* {font-family:arial, sans-serif;}</style>\n' + 
+  '\n\n<h1>Hi,</h1>\n' + 
+  '\n\n<h1>Hit me a thousand times per second if you can,</h1>\n' + 
+  '\n\n');
   });
  
-
   app.use('/dept/admin/tni/auth', require('./route/Authentication')); 
-  app.use('/dept/admin/tni/userr', require('./route/User')); 
-
-  
-
-
- // var localURI = "mongodb://localhost:27017/samplledb";
-  //var mongoURL = remoteURI;
-  
-  mongoose.Promise = global.Promise;
-  
-  // Connecting to the database
-  // mongoose.connect(mongoURL, {
-  //     useNewUrlParser: true
-  // }).then(() => {
-  //     console.log("Successfully connected to the database");    
-  // }).catch(err => {
-  //     console.log('Could not connect to the database. Exiting now...', err);
-  //     process.exit();
-  // });
-
+  app.use('/dept/admin/tni/distributor', require('./route/Distributor')); 
+  app.use('/dept/admin/tni/user', require('./route/User')); 
+  app.use('/dept/admin/tni/distributions', require('./route/Distribution')); 
+  app.use('/dept/admin/tni/team', require('./route/Team')); 
+  app.use('/dept/admin/tni/language', require('./route/Language')); 
+  app.use('/dept/admin/tni/download', require('./route/Download')); 
+  app.use('/dept/admin/tni/translation', require('./route/Translation')); 
+ 
 app.listen(port,() => {
     console.log(`Server running at port `+port);
     });
