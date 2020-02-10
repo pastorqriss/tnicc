@@ -1,4 +1,4 @@
-const translationService = require('../service/translation');
+const translationService = require('../service/Translation');
 
  exports.register = function(req, res, next) {
     translationService.create(req.body)
