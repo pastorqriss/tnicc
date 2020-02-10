@@ -1,4 +1,4 @@
-const authService = require('../service/user.authentication');
+const authService = require('../service/Authentication');
 
 exports.authenticate = function(req, res, next) {
     console.log("auth",req.body)

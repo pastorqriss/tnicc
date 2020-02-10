@@ -1,31 +1,31 @@
-const teamService = require('../service/Team');
+const translationService = require('../service/translation');
 
  exports.register = function(req, res, next) {
-    teamService.create(req.body)
+    translationService.create(req.body)
         .then((data) => res.status(200).send(data))
         .catch(err => next(err));
 }
 
 exports.getAll = function(req, res, next) {
-    teamService.getAll()
-        .then(team => res.json(team))
+    translationService.getAll()
+        .then(translations => res.json(translations))
         .catch(err => next(err)); 
 }
 
 exports.getById = function(req, res, next) {
-    teamService.getById(req.params.id)
-        .then(teams => teams ? res.json(teams) : res.sendStatus(404))
+    translationService.getById(req.params.id)
+        .then(translation => translation ? res.json(translation) : res.sendStatus(404))
         .catch(err => next(err));
 }
 
 exports.update = function(req, res, next) {
-    teamService.update(req.params.id,  req.body)
+    translationService.update(req.params.id,  req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
 }
 
 exports._delete = function(req, res, next) {
-    teamService.delete(req.params.id)
+    translationService.delete(req.params.id)
         .then(() => res.json({}))
         .catch(err => next(err));
 } 
