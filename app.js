@@ -30,13 +30,9 @@ var port = process.env.PORT || 8081;
 
 //All artisan routers
 //var indexRouter = require('./routes');
-//var mailerRouter = require('./routes/mailer');
-//var artisanRouter = require('./routes/artisan/Artisan');
+
 /* 
 var wordAssessementRouter = require('./routes/wordAssessement/WordAssessement');
-var commentReactionRouter = require('./routes/commentReaction/CommentReaction');
-var postReactionRouter = require('./routes/postReaction/PostReaction'); */
-
 
 //app.use(express.static('data',{index:false, extensions:['json']}),jsonRoute);
 //app.use('/', indexRouter);  

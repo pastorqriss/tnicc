@@ -1,10 +1,12 @@
-const translationService = require('../service/translation');
+const translationService = require('../service/Translation');
+
 
  exports.register = function(req, res, next) {
     translationService.create(req.body)
         .then((data) => res.status(200).send(data))
         .catch(err => next(err));
 }
+
 
 exports.getAll = function(req, res, next) {
     translationService.getAll()

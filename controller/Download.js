@@ -1,4 +1,4 @@
-const downloadService = require('../service/translation');
+const downloadService = require('../service/Download');
 
  exports.register = function(req, res, next) {
     downloadService.create(req.body)
