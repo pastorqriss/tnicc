@@ -31,27 +31,24 @@ var port = process.env.PORT || 8081;
 //All artisan routers
 //var indexRouter = require('./routes');
 
-/* 
+
 var wordAssessementRouter = require('./routes/wordAssessement/WordAssessement');
 
 //app.use(express.static('data',{index:false, extensions:['json']}),jsonRoute);
 //app.use('/', indexRouter);  
-// app.use('/public/assets/', express.static(__dirname + '/public/assets/'));
+ app.use('/public/assets/', express.static(__dirname + '/public/assets/'));
+ app.use('/public/css/', express.static(__dirname + '/public/css/'));
+ app.use('/public/css/assets/', express.static(__dirname + '/public/css/assets/'));
+ app.use('/public/css/assets/', express.static(__dirname + '/public/css/assets/'));
 
-/* app.use('/api/commentReaction', commentReactionRouter);
-app.use('/api/wordAssessement', wordAssessementRouter);
-app.use('/api/postReaction', postReactionRouter); */
 
 
 
 router.get("/",function(req,res){
-  //  res.sendFile(path + "index.html");
-  res.send('<!doctype html>\n<html lang="en">\n' +  
-  '\n<meta charset="utf-8">\n<title>TNICC RESTFul Endpoint</title>\n' + 
-  '<style type="text/css">* {font-family:arial, sans-serif;}</style>\n' + 
-  '\n\n<h1>Hi,</h1>\n' + 
-  '\n\n<h1>Hit me a thousand times per second if you can,</h1>\n' + 
-  '\n\n');
+    res.sendFile(path + "index.html");
+  });
+  router.get("/",function(req,res){
+    res.sendFile(path + "index.html");
   });
  
   app.use('/dept/admin/tni/auth', require('./route/Authentication')); 
