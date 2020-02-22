@@ -31,29 +31,46 @@ var port = process.env.PORT || 8081;
 //All artisan routers
 //var indexRouter = require('./routes');
 
-/* 
-var wordAssessementRouter = require('./routes/wordAssessement/WordAssessement');
 
-//app.use(express.static('data',{index:false, extensions:['json']}),jsonRoute);
-//app.use('/', indexRouter);  
-// app.use('/public/assets/', express.static(__dirname + '/public/assets/'));
 
-/* app.use('/api/commentReaction', commentReactionRouter);
-app.use('/api/wordAssessement', wordAssessementRouter);
-app.use('/api/postReaction', postReactionRouter); */
+
+//landing page static files 
+ app.use('/public/assets/', express.static(__dirname + '/public/assets/'));
+ app.use('/public/assets/ldn/', express.static(__dirname + '/public/assets/ldn/'));
+ app.use('/public/assets/ldn/css/', express.static(__dirname + '/public/assets/ldn/css/'));
+ app.use('/public/assets/ldn/css/magnific-popup/', express.static(__dirname + '/public/assets/ldn/css/magnific-popup/'));
+ app.use('/public/assets/ldn/css/mega-menu/', express.static(__dirname + '/public/assets/ldn/css/mega-menu/'));
+ app.use('/public/assets/ldn/css/owl-carousel/', express.static(__dirname + '/public/assets/ldn/css/owl-carousel/'));
+ app.use('/public/assets/ldn/css/skills-graph/', express.static(__dirname + '/public/assets/ldn/css/skills-graph/'));
+ app.use('/public/assets/ldn/css/skins/', express.static(__dirname + '/public/assets/ldn/css/skins/'));
+ app.use('/public/assets/ldn/images/', express.static(__dirname + '/public/assets/ldn/images/'));
+ app.use('/public/assets/ldn/images/thumbnail/', express.static(__dirname + '/public/assets/ldn/images/thumbnail/'));
+ app.use('/public/assets/ldn/fonts/', express.static(__dirname + '/public/assets/ldn/fonts/'));
+ app.use('/public/assets/ldn/js/', express.static(__dirname + '/public/assets/ldn/js/'));
+
+
+
+
+
 
 
 
 router.get("/",function(req,res){
-  //  res.sendFile(path + "index.html");
-  res.send('<!doctype html>\n<html lang="en">\n' +  
-  '\n<meta charset="utf-8">\n<title>TNICC RESTFul Endpoint</title>\n' + 
-  '<style type="text/css">* {font-family:arial, sans-serif;}</style>\n' + 
-  '\n\n<h1>Hi,</h1>\n' + 
-  '\n\n<h1>Hit me a thousand times per second if you can,</h1>\n' + 
-  '\n\n');
+    res.sendFile(path + "index.html");
   });
- 
+  router.get("/admin",function(req,res){
+    res.sendFile(path + "auth-login.html");
+  });
+  router.get("/forgotpwd",function(req,res){
+    res.sendFile(path + "auth-forgot-password.html");
+  });
+  router.get("/admin/dashboard",function(req,res){
+    res.sendFile(path + "dashboard.html");
+  });
+  router.get("/pwdreset",function(req,res){
+    res.sendFile(path + "auth-reset.html");
+  });
+
   app.use('/dept/admin/tni/auth', require('./route/Authentication')); 
   app.use('/dept/admin/tni/distributor', require('./route/Distributor')); 
   app.use('/dept/admin/tni/user', require('./route/User')); 
@@ -62,7 +79,8 @@ router.get("/",function(req,res){
   app.use('/dept/admin/tni/language', require('./route/Language')); 
   app.use('/dept/admin/tni/download', require('./route/Download')); 
   app.use('/dept/admin/tni/translation', require('./route/Translation')); 
- 
+ //mapping for frontend views
+
 app.listen(port,() => {
     console.log(`Server running at port `+port);
     });
